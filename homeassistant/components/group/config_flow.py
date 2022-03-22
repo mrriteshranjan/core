@@ -52,6 +52,12 @@ LIGHT_OPTIONS_SCHEMA = basic_group_options_schema("light").extend(
     }
 )
 
+SWITCH_OPTIONS_SCHEMA = basic_group_options_schema("switch").extend(
+    {
+        vol.Required(CONF_ALL, default=False): selector.selector({"boolean": {}}),
+    }
+)
+
 BINARY_SENSOR_CONFIG_SCHEMA = vol.Schema(
     {vol.Required("name"): selector.selector({"text": {}})}
 ).extend(BINARY_SENSOR_OPTIONS_SCHEMA.schema)
@@ -59,6 +65,10 @@ BINARY_SENSOR_CONFIG_SCHEMA = vol.Schema(
 LIGHT_CONFIG_SCHEMA = vol.Schema(
     {vol.Required("name"): selector.selector({"text": {}})}
 ).extend(LIGHT_OPTIONS_SCHEMA.schema)
+
+SWITCH_CONFIG_SCHEMA = vol.Schema(
+    {vol.Required("name"): selector.selector({"text": {}})}
+).extend(SWITCH_OPTIONS_SCHEMA.schema)
 
 
 INITIAL_STEP_SCHEMA = vol.Schema(
@@ -72,6 +82,7 @@ INITIAL_STEP_SCHEMA = vol.Schema(
                         "fan",
                         "light",
                         "media_player",
+                        "switch",
                     ]
                 }
             }
@@ -93,6 +104,7 @@ CONFIG_FLOW = {
     "fan": HelperFlowStep(basic_group_config_schema("fan")),
     "light": HelperFlowStep(LIGHT_CONFIG_SCHEMA),
     "media_player": HelperFlowStep(basic_group_config_schema("media_player")),
+    "switch": HelperFlowStep(SWITCH_CONFIG_SCHEMA),
 }
 
 
@@ -103,11 +115,12 @@ OPTIONS_FLOW = {
     "fan": HelperFlowStep(basic_group_options_schema("fan")),
     "light": HelperFlowStep(LIGHT_OPTIONS_SCHEMA),
     "media_player": HelperFlowStep(basic_group_options_schema("media_player")),
+    "switch": HelperFlowStep(SWITCH_OPTIONS_SCHEMA),
 }
 
 
 class GroupConfigFlowHandler(HelperConfigFlowHandler, domain=DOMAIN):
-    """Handle a config or options flow for Switch Light."""
+    """Handle a config or options flow for groups."""
 
     config_flow = CONFIG_FLOW
     options_flow = OPTIONS_FLOW

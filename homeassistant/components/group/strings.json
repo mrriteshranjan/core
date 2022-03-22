@@ -46,6 +46,15 @@
           "entities": "[%key:component::group::config::step::binary_sensor::data::entities%]",
           "name": "[%key:component::group::config::step::binary_sensor::data::name%]"
         }
+      },
+      "switch": {
+        "description": "[%key:component::group::config::step::binary_sensor::description%]",
+        "data": {
+          "all": "[%key:component::group::config::step::binary_sensor::data::all%]",
+          "title": "[%key:component::group::config::step::user::title%]",
+          "entities": "[%key:component::group::config::step::binary_sensor::data::entities%]",
+          "name": "[%key:component::group::config::step::binary_sensor::data::name%]"
+        }
       }
     }
   },
@@ -75,6 +84,12 @@
       },
       "media_player_options": {
         "data": {
+          "entities": "[%key:component::group::config::step::binary_sensor::data::entities%]"
+        }
+      },
+      "switch_options": {
+        "data": {
+          "all": "[%key:component::group::config::step::binary_sensor::data::all%]",
           "entities": "[%key:component::group::config::step::binary_sensor::data::entities%]"
         }
       }

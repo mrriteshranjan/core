@@ -22,6 +22,8 @@ from tests.common import MockConfigEntry
         ("light", "on", "on", {}, {}, {"all": False}, {}),
         ("light", "on", "on", {}, {"all": True}, {"all": True}, {}),
         ("media_player", "on", "on", {}, {}, {}, {}),
+        ("switch", "on", "on", {}, {}, {"all": False}, {}),
+        ("switch", "on", "on", {}, {"all": True}, {"all": True}, {}),
     ),
 )
 async def test_config_flow(
@@ -106,6 +108,7 @@ async def test_config_flow(
         ("fan", {}),
         ("light", {}),
         ("media_player", {}),
+        ("switch", {}),
     ),
 )
 async def test_config_flow_hides_members(
@@ -177,6 +180,7 @@ def get_suggested(schema, key):
         ("fan", "on", {}),
         ("light", "on", {"all": False}),
         ("media_player", "on", {}),
+        ("switch", "on", {"all": False}),
     ),
 )
 async def test_options(
@@ -279,6 +283,7 @@ async def test_options(
         ("fan", {}),
         ("light", {}),
         ("media_player", {}),
+        ("switch", {}),
     ),
 )
 async def test_options_flow_hides_members(

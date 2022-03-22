@@ -40,6 +40,15 @@
                     "title": "New Group"
                 }
             },
+            "switch": {
+                "data": {
+                    "all": "All entities",
+                    "entities": "Members",
+                    "name": "Name",
+                    "title": "New Group"
+                },
+                "description": "If \"all entities\" is enabled, the group's state is on only if all members are on. If \"all entities\" is disabled, the group's state is on if any member is on."
+            },
             "user": {
                 "data": {
                     "group_type": "Group type"
@@ -74,6 +83,12 @@
             },
             "media_player_options": {
                 "data": {
+                    "entities": "Members"
+                }
+            },
+            "switch_options": {
+                "data": {
+                    "all": "All entities",
                     "entities": "Members"
                 }
             }
